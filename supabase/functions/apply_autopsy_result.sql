@@ -1,3 +1,6 @@
+-- =========================================
+-- FUNCTION: <apply_autopsy_result
+-- =========================================
 CREATE OR REPLACE FUNCTION public.apply_autopsy_result(p_run_id uuid)
 RETURNS void
 LANGUAGE plpgsql
