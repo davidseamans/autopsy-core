@@ -2,7 +2,7 @@
 -- FUNCTION: calculate_verdict
 -- =========================================
 
-CREATE OR REPLACE FUNCTION public.calculate_verdict(p_run_id uuid)
+CREATE OR REPLACE FUNCTION calculate_verdict(p_run_id uuid)
 RETURNS void
 LANGUAGE plpgsql
  SECURITY DEFINER
