@@ -2,7 +2,7 @@
 -- FUNCTION: convert_lead
 -- =========================================
 
-CREATE OR REPLACE FUNCTION public.convert_lead(p_lead_id uuid)
+CREATE OR REPLACE FUNCTION convert_lead(p_lead_id uuid)
 RETURNS json
 LANGUAGE plpgsql
 AS $function$
