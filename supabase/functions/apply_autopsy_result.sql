@@ -1,7 +1,7 @@
 -- =========================================
 -- FUNCTION: apply_autopsy_result
 -- =========================================
-CREATE OR REPLACE FUNCTION public.apply_autopsy_result(p_run_id uuid)
+CREATE OR REPLACE FUNCTION apply_autopsy_result(p_run_id uuid)
 RETURNS void
 LANGUAGE plpgsql
 AS $function$
@@ -17,4 +17,4 @@ BEGIN
         verdict = v_constraint
     WHERE id = p_run_id;
 END;
-$function$
+$function$ LANGUAGE plpgsql;
