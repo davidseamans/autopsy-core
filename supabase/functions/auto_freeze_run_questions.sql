@@ -1,6 +1,7 @@
 -- =========================================
 -- FUNCTION: auto_freeze_run_questions
 -- =========================================
+
 CREATE OR REPLACE FUNCTION auto_freeze_run_questions()
 RETURNS trigger
 LANGUAGE plpgsql
