@@ -2,7 +2,7 @@
 -- FUNCTION: prevent_run_questions_update
 -- =========================================
 
-CREATE OR REPLACE FUNCTION public.prevent_run_questions_update()
+CREATE OR REPLACE FUNCTION prevent_run_questions_update()
 RETURNS trigger
 LANGUAGE plpgsql
 AS $function$
