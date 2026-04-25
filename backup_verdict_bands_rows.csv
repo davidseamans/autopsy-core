@@ -1,0 +1,9 @@
+id,label,min_score,max_score,verdict_body,decision_hint,scenario,snapshot_at
+09897b66-0d50-4cc2-acac-c6595e0301a4,High Risk,10,17,There are meaningful risks that could impact viability.,Proceed only after addressing core weaknesses.,startup,2026-04-24 04:03:53.320838+00
+0a104150-7fc1-44a8-8072-e55ef89fd305,Structurally Viable,25,30,,,startup,2026-04-25 03:52:52.36473+00
+1315dc13-2f53-45c8-ba97-bf1e893a3c80,Viable,18,24,,,startup,2026-04-25 03:52:52.36473+00
+1d04c2dd-60ce-4529-92c5-009d5f915150,High Risk,10,17,,,startup,2026-04-25 03:52:52.36473+00
+64acfb20-acf8-44c0-ab17-5dd94a9249e6,Not Viable,0,9,,,startup,2026-04-25 03:52:52.36473+00
+726e8a65-9603-474d-bf10-5bb8dba383bd,Not Viable,0,9,The fundamentals are not yet strong enough to support a viable business.,Do not proceed. Reassess or rebuild the foundation.,startup,2026-04-24 04:03:53.320838+00
+bb94fd83-e619-4360-b777-0fbdd516fd06,Structurally Viable,25,30,The core fundamentals are in place.,"Proceed, but stay disciplined and validate assumptions.",startup,2026-04-24 04:03:53.320838+00
+cfa43e86-ef46-46b6-9269-1e5c2c4829cb,Viable,18,24,The business is structurally plausible but not yet robust.,Refine and strengthen before committing.,startup,2026-04-24 04:03:53.320838+00

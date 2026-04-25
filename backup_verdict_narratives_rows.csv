@@ -1,0 +1,21 @@
+id,band_id,section_key,content_template,created_at,snapshot_at
+04d38e7d-548e-4d5a-8178-445dc6865c5f,09897b66-0d50-4cc2-acac-c6595e0301a4,execution_diagnosis,This business is high risk and unstable.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+15263b2c-a346-4108-9f84-aa385ea33055,726e8a65-9603-474d-bf10-5bb8dba383bd,execution_diagnosis,This business is not viable in its current form.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+17acf3a9-510c-45c0-aa86-f90ff1ebc669,cfa43e86-ef46-46b6-9269-1e5c2c4829cb,mechanism_step_2,Revenue can be generated with effort.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+2a264593-f8bd-409c-addb-8f8f2bb81296,09897b66-0d50-4cc2-acac-c6595e0301a4,mechanism_step_2,Revenue is inconsistent or fragile.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+32f8e564-6852-4c2f-8ccf-74bd0ec6b90b,726e8a65-9603-474d-bf10-5bb8dba383bd,mechanism_step_3,Cash flow collapses before stability.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+45c6fcaf-7c26-4eba-a6c0-36c8fb321022,09897b66-0d50-4cc2-acac-c6595e0301a4,mechanism_step_3,Operational pressure leads to breakdown.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+4dac5405-8175-4c44-890f-a377c060aea4,09897b66-0d50-4cc2-acac-c6595e0301a4,final_outcome,"Without correction, failure is likely.",2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+615e02bf-4a96-4ac3-bc35-42e9a7bb30ba,bb94fd83-e619-4360-b777-0fbdd516fd06,final_outcome,The business can scale with discipline.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+745eecb7-7bb2-4e1f-a892-58d447dfae8a,726e8a65-9603-474d-bf10-5bb8dba383bd,final_outcome,The business fails unless core assumptions are proven.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+794bfbbb-f4d0-458a-bad0-bdea993829c6,bb94fd83-e619-4360-b777-0fbdd516fd06,execution_diagnosis,This business is structurally viable.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+8413e8a1-ae33-4d97-a6bf-d7396dbf876a,cfa43e86-ef46-46b6-9269-1e5c2c4829cb,execution_diagnosis,This business shows signs of viability.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+8f92bc71-0497-4f21-957e-4fbeb85768da,bb94fd83-e619-4360-b777-0fbdd516fd06,mechanism_step_1,Demand is validated.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+aa20a4ac-a44b-48a9-9572-3d19cfff53e1,726e8a65-9603-474d-bf10-5bb8dba383bd,mechanism_step_1,No validated demand exists.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+cb270045-0ba3-4a23-bb2d-49e2c99d1e3a,cfa43e86-ef46-46b6-9269-1e5c2c4829cb,mechanism_step_1,Demand exists but is not fully stable.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+ce738bbd-d649-43ea-a529-50dd09a98c89,cfa43e86-ef46-46b6-9269-1e5c2c4829cb,mechanism_step_3,Operational consistency is developing.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+d3c1c020-7551-4d7b-b5af-1dfb8feb7258,09897b66-0d50-4cc2-acac-c6595e0301a4,mechanism_step_1,Key assumptions are weak or unproven.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+d72e349c-c120-40b8-9a9e-8e45afba43d5,bb94fd83-e619-4360-b777-0fbdd516fd06,mechanism_step_3,Operations support sustained delivery.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+da33b557-7edf-49a8-8f77-4d6740d2ad04,726e8a65-9603-474d-bf10-5bb8dba383bd,mechanism_step_2,Revenue cannot be generated consistently.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+dbff6a49-f2f5-464f-9c7b-09499dce7585,cfa43e86-ef46-46b6-9269-1e5c2c4829cb,final_outcome,The business can succeed with structured execution.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
+e9b37a0f-60d2-4dbd-9b41-b981fd35c0f0,bb94fd83-e619-4360-b777-0fbdd516fd06,mechanism_step_2,Revenue generation is reliable.,2026-04-24 00:18:27.038429,2026-04-24 04:03:53.320838+00
