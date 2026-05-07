@@ -1,0 +1,26 @@
+# EXECUTION ENGINE V1 — KNOWN GOOD SNAPSHOT
+
+DATE:
+2026-05-07
+
+STATUS:
+Deterministic state machine operational.
+
+VALIDATED:
+- Sequential advancement working
+- Completed=true transition working
+- Active=true next-state activation working
+- Search Objects deterministic
+- No recursive update loop
+- Stable clean Notion substrate
+
+KNOWN FAILURE CAUSES:
+- Corrupted legacy Notion DB reuse
+- Stale Make connections
+- Non-deterministic Search Objects
+- Updating original row instead of next-state row
+
+RULES:
+- Snapshot before architecture changes
+- Never reuse corrupted DB substrate
+- One valid next state only
