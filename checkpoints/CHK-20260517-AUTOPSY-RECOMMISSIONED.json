@@ -1,0 +1,76 @@
+{
+  "checkpoint_id": "CHK-20260517-AUTOPSY-RECOMMISSIONED",
+  "checkpoint_status": "VERIFIED",
+  "created_at_aest": "2026-05-17 AEST",
+  "purpose": "Autopsy canonical recommissioned and validated through low/mid/high live UI execution paths.",
+  "systems": {
+    "supabase": {
+      "project_name": "autopsy-canonical",
+      "project_ref": "fzbdztapkyrfwjwxtwte",
+      "active_question_count": 10,
+      "s1_prefixed_question_count": 0
+    },
+    "lovable": {
+      "project_name": "Autopsy Gateway Shell",
+      "project_id": "f9ce02c9-c9fa-4b07-917c-0d521d6aff74"
+    },
+    "github": {
+      "repository": "davidseamans/autopsy-core",
+      "branch": "main"
+    }
+  },
+  "validated_runs": {
+    "low_band": {
+      "run_id": "41ebfc1d-e36f-4cdd-a41a-ffde1600b31a",
+      "run_name": "Low Hard Fail Validation",
+      "score_total": 0,
+      "verdict_name": "Not Viable",
+      "primary_risk": "Cash Reality",
+      "permission_level": "locked"
+    },
+    "mid_band": {
+      "run_id": "3af17efe-30c4-40d4-81f0-bbf99a761f06",
+      "run_name": "UI MID BAND VALIDATION 2026-05-17 — RETEST",
+      "score_total": 17,
+      "verdict_name": "High Risk",
+      "primary_risk": "Psychological Resilience",
+      "permission_level": "blocked"
+    },
+    "high_band": {
+      "run_id": "1eea751c-333a-4440-9f4e-0ddf63cf2ef6",
+      "run_name": "UI HIGH BAND VALIDATION 2026-05-17 - Test 2",
+      "score_total": 30,
+      "verdict_name": "Structurally Viable",
+      "permission_level": "granted"
+    }
+  },
+  "verified_capabilities": [
+    "10-question canonical runtime",
+    "No S1_ prefixes",
+    "Question freeze lifecycle",
+    "Answer persistence",
+    "Hard-fail orchestration",
+    "Mid-band verdict orchestration",
+    "High-band structurally viable orchestration",
+    "History rendering",
+    "Worksheet routing",
+    "Dimension scoring",
+    "Primary risk calculation",
+    "Finalize orchestration",
+    "Lovable UI integration",
+    "GitHub operational logging"
+  ],
+  "known_deferred_items": [
+    "Question-quality redesign",
+    "Question randomisation",
+    "Operator-level adaptation",
+    "Industry sleeve variants",
+    "n8n checkpoint automation",
+    "One-button restore orchestration"
+  ],
+  "restore_manual": {
+    "document": "docs/operations/teenage-support-restore-manual-v1.md",
+    "status": "created"
+  },
+  "operational_statement": "Autopsy canonical is mechanically recommissioned. Future work must proceed under checkpoint governance discipline."
+}
