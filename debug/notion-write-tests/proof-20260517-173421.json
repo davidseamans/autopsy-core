@@ -1,0 +1,244 @@
+{
+  "executed_at": "2026-05-17T17:34:21.591+10:00",
+  "workflow": "PROOF — Notion HTTP Write to GitHub Debug",
+  "http_status_code": 200,
+  "notion_page_id": "363cd466-b3f5-815b-8226-c09fa15336a0",
+  "write_success": true,
+  "raw_response": {
+    "object": "page",
+    "id": "363cd466-b3f5-815b-8226-c09fa15336a0",
+    "created_time": "2026-05-17T07:34:00.000Z",
+    "last_edited_time": "2026-05-17T07:34:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "363cd466-b3f5-81c6-a0f2-00277bde8fde"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "363cd466-b3f5-81c6-a0f2-00277bde8fde"
+    },
+    "cover": null,
+    "icon": null,
+    "parent": {
+      "type": "database_id",
+      "database_id": "6dc02554-d776-455b-863a-f5dafb55487f"
+    },
+    "in_trash": false,
+    "is_archived": false,
+    "is_locked": false,
+    "properties": {
+      "Restore Allowed": {
+        "id": "AdbM",
+        "type": "checkbox",
+        "checkbox": true
+      },
+      "Status": {
+        "id": "Aeta",
+        "type": "select",
+        "select": {
+          "id": "a0844832-0106-4072-832d-046ec80b8e37",
+          "name": "PASS",
+          "color": "green"
+        }
+      },
+      "Mismatches": {
+        "id": "FaAp",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "None",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "None",
+            "href": null
+          }
+        ]
+      },
+      "GitHub Repo": {
+        "id": "IRdh",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "davidseamans/autopsy-core",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "davidseamans/autopsy-core",
+            "href": null
+          }
+        ]
+      },
+      "Supabase Project": {
+        "id": "M%40Cq",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "fzbdztapkyrfwjwxtwte",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "fzbdztapkyrfwjwxtwte",
+            "href": null
+          }
+        ]
+      },
+      "Lovable Project ID": {
+        "id": "MxeV",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "f9ce02c9-c9fa-4b07-917c-0d521d6aff74",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "f9ce02c9-c9fa-4b07-917c-0d521d6aff74",
+            "href": null
+          }
+        ]
+      },
+      "Checkpoint ID": {
+        "id": "QJ%5DC",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "PROOF",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "PROOF",
+            "href": null
+          }
+        ]
+      },
+      "Timestamp": {
+        "id": "%5BAAd",
+        "type": "date",
+        "date": null
+      },
+      "Verification ID": {
+        "id": "%5BY%5BW",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "PROOF",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "PROOF",
+            "href": null
+          }
+        ]
+      },
+      "Workflow": {
+        "id": "%7CsBH",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "PROOF — Notion HTTP Write to GitHub Debug",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "PROOF — Notion HTTP Write to GitHub Debug",
+            "href": null
+          }
+        ]
+      },
+      "Mismatch Count": {
+        "id": "~%7BBz",
+        "type": "number",
+        "number": 0
+      },
+      "Name": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "PROOF — NOTION HTTP WRITE",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "PROOF — NOTION HTTP WRITE",
+            "href": null
+          }
+        ]
+      }
+    },
+    "url": "https://www.notion.so/PROOF-NOTION-HTTP-WRITE-363cd466b3f5815b8226c09fa15336a0",
+    "public_url": null,
+    "archived": false,
+    "request_id": "6f361b17-b2b4-452c-9c7f-18f4367b99f5"
+  }
+}
