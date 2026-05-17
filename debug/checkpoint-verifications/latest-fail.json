@@ -1,0 +1,251 @@
+{
+  "executed_at": "2026-05-17T18:15:18.876+10:00",
+  "workflow": "Autopsy — Create Checkpoint",
+  "checkpoint_id": "CHK-20260517-1815-AUTOPSY",
+  "verification_id": "CHK-20260517-1815-AUTOPSY",
+  "status": "FAIL",
+  "notion_http_status_code": 200,
+  "notion_page_id": "363cd466-b3f5-81ad-a4a2-efdee2b819e5",
+  "notion_write_success": true,
+  "github_manifest_path": "not-created",
+  "mismatch_count": 2,
+  "mismatches": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":10},{\"field\":\"startup_questions_count\",\"expected\":0,\"actual\":10}]",
+  "restore_allowed": false,
+  "raw_notion_response": {
+    "object": "page",
+    "id": "363cd466-b3f5-81ad-a4a2-efdee2b819e5",
+    "created_time": "2026-05-17T08:15:00.000Z",
+    "last_edited_time": "2026-05-17T08:15:00.000Z",
+    "created_by": {
+      "object": "user",
+      "id": "363cd466-b3f5-81c6-a0f2-00277bde8fde"
+    },
+    "last_edited_by": {
+      "object": "user",
+      "id": "363cd466-b3f5-81c6-a0f2-00277bde8fde"
+    },
+    "cover": null,
+    "icon": null,
+    "parent": {
+      "type": "database_id",
+      "database_id": "6dc02554-d776-455b-863a-f5dafb55487f"
+    },
+    "in_trash": false,
+    "is_archived": false,
+    "is_locked": false,
+    "properties": {
+      "Restore Allowed": {
+        "id": "AdbM",
+        "type": "checkbox",
+        "checkbox": false
+      },
+      "Status": {
+        "id": "Aeta",
+        "type": "select",
+        "select": {
+          "id": "e2d41e76-890c-4c4c-9e69-1c61a70237e2",
+          "name": "FAIL",
+          "color": "red"
+        }
+      },
+      "Mismatches": {
+        "id": "FaAp",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":10},{\"field\":\"startup_questions_count\",\"expected\":0,\"actual\":10}]",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":10},{\"field\":\"startup_questions_count\",\"expected\":0,\"actual\":10}]",
+            "href": null
+          }
+        ]
+      },
+      "GitHub Repo": {
+        "id": "IRdh",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "davidseamans/autopsy-core",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "davidseamans/autopsy-core",
+            "href": null
+          }
+        ]
+      },
+      "Supabase Project": {
+        "id": "M%40Cq",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "fzbdztapkyrfwjwxtwte",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "fzbdztapkyrfwjwxtwte",
+            "href": null
+          }
+        ]
+      },
+      "Lovable Project ID": {
+        "id": "MxeV",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "f9ce02c9-c9fa-4b07-917c-0d521d6aff74",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "f9ce02c9-c9fa-4b07-917c-0d521d6aff74",
+            "href": null
+          }
+        ]
+      },
+      "Checkpoint ID": {
+        "id": "QJ%5DC",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "CHK-20260517-1815-AUTOPSY",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "CHK-20260517-1815-AUTOPSY",
+            "href": null
+          }
+        ]
+      },
+      "Timestamp": {
+        "id": "%5BAAd",
+        "type": "date",
+        "date": null
+      },
+      "Verification ID": {
+        "id": "%5BY%5BW",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "CHK-20260517-1815-AUTOPSY",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "CHK-20260517-1815-AUTOPSY",
+            "href": null
+          }
+        ]
+      },
+      "Workflow": {
+        "id": "%7CsBH",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Autopsy — Create Checkpoint",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "Autopsy — Create Checkpoint",
+            "href": null
+          }
+        ]
+      },
+      "Mismatch Count": {
+        "id": "~%7BBz",
+        "type": "number",
+        "number": 2
+      },
+      "Name": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Checkpoint Created — CHK-20260517-1815-AUTOPSY — FAIL",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "Checkpoint Created — CHK-20260517-1815-AUTOPSY — FAIL",
+            "href": null
+          }
+        ]
+      }
+    },
+    "url": "https://www.notion.so/Checkpoint-Created-CHK-20260517-1815-AUTOPSY-FAIL-363cd466b3f581ada4a2efdee2b819e5",
+    "public_url": null,
+    "archived": false,
+    "request_id": "1103260b-c619-45a2-870a-e21e91fb9406"
+  }
+}
