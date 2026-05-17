@@ -14,6 +14,66 @@ A non-technical support operator selects a verified checkpoint, presses one butt
 
 ---
 
+# Automation doctrine
+
+n8n is not a prettier manual checklist.
+
+n8n is the controlled automation and Cuff execution layer.
+
+Operational model:
+
+```text
+Core = universal operating truth
+Sleeve = industry-specific logic
+Cuff = client-specific configuration and workflow variation
+n8n = controlled automation layer that applies Cuff variation without polluting Core/Sleeve
+```
+
+## Human intervention rule
+
+Checkpoint creation and verification must be human-intervention free after trigger.
+
+Human role is limited to:
+
+```text
+approve checkpoint creation trigger
+approve restore trigger
+approve destructive action
+review PASS / FAIL output
+```
+
+Humans must not manually assemble checkpoint manifests, copy/paste validation results, interpret partial system state, or decide whether a checkpoint is valid outside the workflow.
+
+## Cuff governance rule
+
+Client-specific behaviour must live in:
+
+```text
+client configuration
+metadata
+n8n workflow variables
+client profile records
+```
+
+Client-specific behaviour must not be hardcoded into:
+
+```text
+Core tables
+Core RPCs
+Core Lovable screens
+Sleeve canon
+```
+
+## Revised operating principle
+
+```text
+No human intervention in checkpoint creation.
+No human interpretation in verification.
+Human approval only for restore/destructive actions.
+```
+
+---
+
 # Required workflows
 
 ## Workflow 1 — Autopsy — Create Checkpoint
@@ -35,6 +95,8 @@ Future trigger:
 ```text
 Webhook / button / bookmark
 ```
+
+After trigger, the workflow must run without human assembly or interpretation.
 
 ### Node sequence
 
@@ -58,6 +120,8 @@ Webhook / button / bookmark
   "mode": "manual"
 }
 ```
+
+These are trigger inputs only. They must not require manual data assembly.
 
 ### Required Supabase checks
 
@@ -99,6 +163,8 @@ Initial trigger:
 ```text
 Manual Trigger
 ```
+
+After checkpoint_id selection, the workflow must perform comparison automatically.
 
 ### Node sequence
 
@@ -234,6 +300,12 @@ First restore test must run against a development/sandbox environment.
   "restore_manual": {
     "document": "docs/operations/teenage-support-restore-manual-v1.md",
     "status": "created"
+  },
+  "cuff_context": {
+    "client_id": "optional",
+    "sleeve": "optional",
+    "cuff_profile": "optional",
+    "automation_profile": "optional"
   }
 }
 ```
@@ -323,3 +395,5 @@ checkpoint created
 checkpoint verified
 restore manual still accurate
 ```
+
+The checkpoint process must stay human-intervention free except for explicit trigger/approval gates.
