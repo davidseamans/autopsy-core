@@ -1,7 +1,7 @@
 # Core Stack
 
 AI reasons
-→ Make orchestrates
+→ n8n orchestrates
 → Supabase validates
 → GitHub protects
 → Notion visualizes
@@ -39,11 +39,19 @@ GitHub owns:
 - operational history
 - governance tracking
 
+n8n owns:
+- orchestration workflows
+- scheduled checks
+- controlled cross-system handoffs
+- snapshot/checkpoint triggers
+- non-canonical automation logs
+
 ---
 
 ## Prohibited Architecture
 
 - hidden logic in Lovable
-- pseudo-Core in Make
+- pseudo-Core in n8n
 - Notion as canonical truth
 - undocumented mutations
+- unrestricted AI writes to Supabase Core
