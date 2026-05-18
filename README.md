@@ -4,7 +4,7 @@
 
 Supabase = Core Truth
 GitHub = Operational Memory + Rollback Authority
-Make = Orchestration Layer
+n8n = Orchestration Layer
 Notion = Visibility + Management Layer
 Lovable = UI Surface Layer
 
@@ -39,6 +39,7 @@ No uncontrolled mutation permitted.
 /docs
 /architecture
 /operational_logs
+/n8n
 
 ---
 
@@ -49,7 +50,8 @@ No uncontrolled mutation permitted.
 - Supabase RPCs operate via p_run_id
 - One source of truth only
 - No hidden business logic in Lovable
-- No pseudo-Core logic in Make.com
+- No pseudo-Core logic in n8n
+- n8n orchestrates handoffs only; Supabase remains validation and truth authority
 
 ---
 
