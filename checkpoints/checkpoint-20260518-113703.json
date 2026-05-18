@@ -1,0 +1,10 @@
+{
+  "checkpoint_id": "CHK-20260518-1137-AUTOPSY",
+  "created_at": "2026-05-18T11:37:03.601+10:00",
+  "supabase_project": "fzbdztapkyrfwjwxtwte",
+  "github_repo": "davidseamans/autopsy-core",
+  "lovable_project_id": "f9ce02c9-c9fa-4b07-917c-0d521d6aff74",
+  "total_questions_count": 10,
+  "startup_questions_count": 10,
+  "validation_passed": true
+}
