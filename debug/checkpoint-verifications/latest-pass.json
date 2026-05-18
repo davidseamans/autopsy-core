@@ -1,0 +1,11 @@
+{
+  "artifact_type": "checkpoint_pass_debug",
+  "path": "debug/checkpoint-verifications/latest-pass.json",
+  "created_by": "ChatGPT GitHub connector",
+  "created_at_aest": "2026-05-18",
+  "status": "BOOTSTRAP_CREATED",
+  "reason": "n8n AI context parser was blocked by malformed saved summary. This file bootstraps the missing PASS debug artifact so n8n can verify/update it rather than fail on non-existence.",
+  "repository": "davidseamans/autopsy-core",
+  "branch": "main",
+  "verification_rule": "PASS VERIFIED requires GitHub readback of checkpoint manifest, Notion row evidence, and this debug file."
+}
