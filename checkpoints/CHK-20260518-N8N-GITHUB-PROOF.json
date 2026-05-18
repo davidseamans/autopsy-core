@@ -1,0 +1,10 @@
+{
+  "checkpoint_id": "CHK-20260518-N8N-GITHUB-PROOF",
+  "created_at_aest": "2026-05-18",
+  "purpose": "Verify GitHub write authority and proof-gated checkpoint standard before live n8n workflow implementation.",
+  "repository": "davidseamans/autopsy-core",
+  "branch": "main",
+  "authority_test": "GitHub write plus commit fetch-back required",
+  "status": "WRITE_REQUESTED",
+  "notes": "This file is intentionally created as a checkpoint proof artefact. Success is not valid until the returned commit SHA is fetched back from GitHub."
+}
