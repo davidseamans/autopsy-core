@@ -1,0 +1,15 @@
+{
+  "checkpoint_id": "CHK-20260518-N8N-ACCEPTANCE-TEST",
+  "created_at_aest": "2026-05-18",
+  "test_type": "n8n acceptance proof pattern",
+  "expected_n8n_behaviour": [
+    "write checkpoint file to GitHub",
+    "capture returned commit SHA",
+    "fetch commit back from GitHub",
+    "verify expected file exists",
+    "only then write PASS to visibility layer"
+  ],
+  "repository": "davidseamans/autopsy-core",
+  "branch": "main",
+  "status": "WRITE_REQUESTED"
+}
