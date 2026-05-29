@@ -1,21 +1,21 @@
 {
-  "executed_at": "2026-05-17T18:32:52.835+10:00",
+  "executed_at": "2026-05-29T17:34:28.467+10:00",
   "workflow": "Autopsy — Create Checkpoint",
-  "checkpoint_id": "CHK-20260517-1832-AUTOPSY",
-  "verification_id": "CHK-20260517-1832-AUTOPSY",
+  "checkpoint_id": "CHK-20260529-1734-AUTOPSY",
+  "verification_id": "CHK-20260529-1734-AUTOPSY",
   "status": "FAIL",
   "notion_http_status_code": 200,
-  "notion_page_id": "363cd466-b3f5-819c-8c8f-d35a650474f1",
+  "notion_page_id": "36fcd466-b3f5-8145-bf01-e853c25f36db",
   "notion_write_success": true,
   "github_manifest_path": "not-created",
   "mismatch_count": 2,
-  "mismatches": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":10},{\"field\":\"startup_questions_count\",\"expected\":0,\"actual\":10}]",
+  "mismatches": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":12},{\"field\":\"startup_questions_count\",\"expected\":10,\"actual\":12}]",
   "restore_allowed": false,
   "raw_notion_response": {
     "object": "page",
-    "id": "363cd466-b3f5-819c-8c8f-d35a650474f1",
-    "created_time": "2026-05-17T08:32:00.000Z",
-    "last_edited_time": "2026-05-17T08:32:00.000Z",
+    "id": "36fcd466-b3f5-8145-bf01-e853c25f36db",
+    "created_time": "2026-05-29T07:34:00.000Z",
+    "last_edited_time": "2026-05-29T07:34:00.000Z",
     "created_by": {
       "object": "user",
       "id": "363cd466-b3f5-81c6-a0f2-00277bde8fde"
@@ -55,7 +55,7 @@
           {
             "type": "text",
             "text": {
-              "content": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":10},{\"field\":\"startup_questions_count\",\"expected\":0,\"actual\":10}]",
+              "content": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":12},{\"field\":\"startup_questions_count\",\"expected\":10,\"actual\":12}]",
               "link": null
             },
             "annotations": {
@@ -66,7 +66,7 @@
               "code": false,
               "color": "default"
             },
-            "plain_text": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":10},{\"field\":\"startup_questions_count\",\"expected\":0,\"actual\":10}]",
+            "plain_text": "[{\"field\":\"total_questions_count\",\"expected\":10,\"actual\":12},{\"field\":\"startup_questions_count\",\"expected\":10,\"actual\":12}]",
             "href": null
           }
         ]
@@ -147,7 +147,7 @@
           {
             "type": "text",
             "text": {
-              "content": "CHK-20260517-1832-AUTOPSY",
+              "content": "CHK-20260529-1734-AUTOPSY",
               "link": null
             },
             "annotations": {
@@ -158,7 +158,7 @@
               "code": false,
               "color": "default"
             },
-            "plain_text": "CHK-20260517-1832-AUTOPSY",
+            "plain_text": "CHK-20260529-1734-AUTOPSY",
             "href": null
           }
         ]
@@ -175,7 +175,7 @@
           {
             "type": "text",
             "text": {
-              "content": "CHK-20260517-1832-AUTOPSY",
+              "content": "CHK-20260529-1734-AUTOPSY",
               "link": null
             },
             "annotations": {
@@ -186,7 +186,7 @@
               "code": false,
               "color": "default"
             },
-            "plain_text": "CHK-20260517-1832-AUTOPSY",
+            "plain_text": "CHK-20260529-1734-AUTOPSY",
             "href": null
           }
         ]
@@ -226,7 +226,7 @@
           {
             "type": "text",
             "text": {
-              "content": "Checkpoint Created — CHK-20260517-1832-AUTOPSY — FAIL",
+              "content": "Checkpoint Created — CHK-20260529-1734-AUTOPSY — FAIL",
               "link": null
             },
             "annotations": {
@@ -237,15 +237,15 @@
               "code": false,
               "color": "default"
             },
-            "plain_text": "Checkpoint Created — CHK-20260517-1832-AUTOPSY — FAIL",
+            "plain_text": "Checkpoint Created — CHK-20260529-1734-AUTOPSY — FAIL",
             "href": null
           }
         ]
       }
     },
-    "url": "https://www.notion.so/Checkpoint-Created-CHK-20260517-1832-AUTOPSY-FAIL-363cd466b3f5819c8c8fd35a650474f1",
+    "url": "https://www.notion.so/Checkpoint-Created-CHK-20260529-1734-AUTOPSY-FAIL-36fcd466b3f58145bf01e853c25f36db",
     "public_url": null,
     "archived": false,
-    "request_id": "be17bb30-5661-42ff-9511-50d5fa9765fc"
+    "request_id": "417de3fe-db95-408d-b5b7-8c34911216ed"
   }
 }
