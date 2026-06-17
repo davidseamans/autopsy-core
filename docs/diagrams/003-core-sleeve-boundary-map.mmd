@@ -1,0 +1,41 @@
+flowchart TD
+    Core[Core Product\nIndustry-agnostic operating system]
+    Accounts[Accounts]
+    Contacts[Contacts]
+    Leads[Leads + Pipeline]
+    QuotesJobs[Quotes + Jobs]
+    Scheduling[Scheduling]
+    TimeAttendance[Time + Attendance]
+    PayrollInputs[Payroll Inputs]
+    Expenses[Expenses]
+    Documents[Documents]
+    Config[Config + UUID Validation]
+    Audit[Audit + Reporting]
+
+    Sleeve[Industry Sleeve\nVertical add-on logic]
+    Cleaning[Cleaning Sleeve]
+    Pricing[Pricing Rules]
+    Compliance[Compliance Requirements]
+    Templates[Templates]
+    Reports[Sleeve Reports]
+
+    Core --> Accounts
+    Core --> Contacts
+    Core --> Leads
+    Core --> QuotesJobs
+    Core --> Scheduling
+    Core --> TimeAttendance
+    Core --> PayrollInputs
+    Core --> Expenses
+    Core --> Documents
+    Core --> Config
+    Core --> Audit
+
+    Sleeve --> Cleaning
+    Cleaning --> Pricing
+    Cleaning --> Compliance
+    Cleaning --> Templates
+    Cleaning --> Reports
+
+    Sleeve -. reads / extends .-> Core
+    Sleeve -. must not mutate core schema .-> Core
