@@ -1,0 +1,30 @@
+flowchart LR
+    Manual[Manual Trigger]
+    Schedule[Daily EOD Trigger\n10:00 PM Australia/Brisbane]
+    Start[Start Telemetry]
+    RunID[Normalize Run ID]
+    Summary[Get Operational Control Summary]
+    Payload[Build EOD Payload]
+    FindToday[Find Today's EOD Row\nalwaysOutputData = true]
+    Exists{Today's EOD Exists?\n!!json.id}
+    Update[Update Existing EOD Row\nCurrent Authority = true]
+    FindCurrent[Find Current Authority EOD Rows]
+    ClearPrior[Clear Prior Current Authority\nCurrent Authority = false]
+    Create[Create EOD Master Index Record\nCurrent Authority = true]
+    Finish[Finish Telemetry Success]
+    Error[Finish Telemetry Error]
+
+    Manual --> Start
+    Schedule --> Start
+    Start --> RunID
+    RunID --> Summary
+    Summary --> Payload
+    Payload --> FindToday
+    FindToday --> Exists
+    Exists -- true --> Update
+    Update --> Finish
+    Exists -- false --> FindCurrent
+    FindCurrent --> ClearPrior
+    ClearPrior --> Create
+    Create --> Finish
+    Finish -. on error .-> Error
