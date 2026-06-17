@@ -1,0 +1,22 @@
+flowchart TD
+    User[David / Operator]
+    Codex[Codex\nCode + repo execution assistant]
+    GitHub[GitHub\nVersion-control authority]
+    Mermaid[Mermaid\nArchitecture diagram language]
+    Supabase[Supabase\nSource of truth + validation authority]
+    N8N[n8n\nWorkflow orchestration authority]
+    Notion[Notion\nManagement + visibility layer]
+
+    User --> Codex
+    Codex --> GitHub
+    GitHub --> Mermaid
+    GitHub --> Supabase
+    GitHub --> N8N
+    Supabase --> N8N
+    N8N --> Supabase
+    N8N --> Notion
+    Supabase --> Notion
+    Notion --> User
+
+    classDef authority fill:#f5f5f5,stroke:#333,stroke-width:1px;
+    class Supabase,N8N,Notion,GitHub,Codex,Mermaid authority;
