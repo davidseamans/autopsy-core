@@ -1,0 +1,27 @@
+flowchart LR
+    Start[Start Autopsy Run]
+    Scenario[Select Scenario\nStartup / Acquisition / Franchise]
+    Industry[Select Industry]
+    Questions[Load Frozen Questions]
+    Answers[Capture Answers]
+    Score[Calculate Score]
+    Risk[Determine Primary Risk]
+    Verdict[Select Verdict Band]
+    Narrative[Render Narrative]
+    Report[Generate User Report]
+    EOD[Governance / EOD Reporting]
+
+    Start --> Scenario
+    Scenario --> Industry
+    Industry --> Questions
+    Questions --> Answers
+    Answers --> Score
+    Score --> Risk
+    Risk --> Verdict
+    Verdict --> Narrative
+    Narrative --> Report
+    Report --> EOD
+
+    Questions -. immutable question set .-> Answers
+    Score -. no fallback duplication .-> Verdict
+    Risk -. evidence-based dimension aggregation .-> Verdict
