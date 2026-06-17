@@ -1,0 +1,57 @@
+flowchart TD
+    Doctrine[Autopsy Doctrine\nEvidence-first operator assessment]
+    Canon[Canonical Directives\nLocked principles + governance rules]
+    Architecture[Architecture Layer\nSystem design + boundary control]
+    Core[Core Product\nIndustry-agnostic operating platform]
+    Sleeve[Industry Sleeves\nVertical domain logic]
+    Cleaning[Cleaning Sleeve\nFirst vertical]
+    Autopsy[Autopsy\nPre-business diagnostic gate]
+    Operator[Operator / Client\nEvidence, decisions, behaviour]
+
+    Supabase[Supabase\nCanonical truth + validation]
+    N8N[n8n\nOrchestration + telemetry]
+    Notion[Notion\nManagement + visibility]
+    GitHub[GitHub\nVersion control + rollback]
+    Codex[Codex\nRepo execution assistant]
+    Mermaid[Mermaid\nArchitecture diagrams]
+    EOD[EOD Master Index\nDaily authority record]
+    SOD[SOD Directive\nNext-day execution brief]
+
+    Doctrine --> Canon
+    Canon --> Architecture
+    Architecture --> Core
+    Core --> Sleeve
+    Sleeve --> Cleaning
+    Autopsy --> Operator
+    Operator --> Autopsy
+    Autopsy --> Core
+    Autopsy -. gates readiness for .-> Sleeve
+
+    GitHub --> Canon
+    GitHub --> Architecture
+    GitHub --> Mermaid
+    Codex --> GitHub
+    Mermaid --> Architecture
+
+    Supabase --> Core
+    Supabase --> Autopsy
+    Supabase --> N8N
+    N8N --> Supabase
+    N8N --> Notion
+    Notion --> Operator
+
+    N8N --> EOD
+    EOD --> SOD
+    SOD --> Operator
+    EOD --> GitHub
+    SOD --> GitHub
+
+    Canon -. prevents drift .-> Core
+    Architecture -. protects Core boundary .-> Sleeve
+    Supabase -. source of truth .-> Notion
+    Notion -. not canonical .-> Supabase
+    GitHub -. rollback authority .-> Supabase
+    N8N -. logged controlled mutation .-> Supabase
+
+    classDef governance fill:#f5f5f5,stroke:#333,stroke-width:1px;
+    class Doctrine,Canon,Architecture,EOD,SOD governance;
