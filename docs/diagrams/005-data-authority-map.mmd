@@ -1,0 +1,23 @@
+flowchart TD
+    Supabase[Supabase\nCanonical data authority]
+    Validation[Validation Layer\nRLS / RPC / constraints]
+    Audit[Audit + Telemetry\nautomation_runs]
+    GitHub[GitHub\nVersioned scripts / diagrams / workflows]
+    N8N[n8n\nControlled orchestration]
+    Notion[Notion\nVisibility + management]
+    Operator[Operator Review]
+
+    GitHub --> Supabase
+    GitHub --> N8N
+    Supabase --> Validation
+    Validation --> Audit
+    N8N --> Supabase
+    N8N --> Notion
+    Supabase --> Notion
+    Notion --> Operator
+    Operator --> GitHub
+
+    Supabase -. source of truth .-> Notion
+    Notion -. not canonical .-> Supabase
+    N8N -. logs every production mutation .-> Audit
+    GitHub -. rollback protection .-> Supabase
