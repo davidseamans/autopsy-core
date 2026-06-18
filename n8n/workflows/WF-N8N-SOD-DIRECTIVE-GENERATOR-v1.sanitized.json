@@ -1,0 +1,994 @@
+{
+  "name": "WF-N8N-SOD-DIRECTIVE-GENERATOR-v1",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6199282e-61e9-4fb0-afb8-967b5b44822a",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "start_time",
+              "name": "start_time",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "workflow_run_id",
+              "name": "workflow_run_id",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "workflow_name",
+              "name": "workflow_name",
+              "value": "sod_directive_generator_workflow",
+              "type": "string"
+            },
+            {
+              "id": "trigger",
+              "name": "trigger",
+              "value": "manual_or_schedule",
+              "type": "string"
+            },
+            {
+              "id": "purpose",
+              "name": "purpose",
+              "value": "generate_start_of_day_directive",
+              "type": "string"
+            },
+            {
+              "id": "status",
+              "name": "status",
+              "value": "started",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d302f5ed-6610-4931-83e3-4fd0de5357b3",
+      "name": "Start Telemetry",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        464,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "any",
+                "operation": "exists"
+              },
+              "id": "a884f517-d369-4f61-9934-7ce9574005d9"
+            },
+            {
+              "id": "6c7ad48a-b273-49da-b58b-d6740fda3979",
+              "leftValue": "={{ !!$json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "93b3f714-e4c4-41fd-aff5-5e02ec82d84e",
+      "name": "Validate EOD Authority Found",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1360,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "source_eod_title",
+              "name": "source_eod_title",
+              "value": "={{ $json.eod_title ?? \"No EOD title recorded\" }}",
+              "type": "string"
+            },
+            {
+              "id": "source_eod_date",
+              "name": "source_eod_date",
+              "value": "={{ $json.eod_date ?? \"Unknown\" }}",
+              "type": "string"
+            },
+            {
+              "id": "generated_date",
+              "name": "generated_date",
+              "value": "={{ $today.toFormat(\"yyyy-MM-dd\") }}",
+              "type": "string"
+            },
+            {
+              "id": "directive_title",
+              "name": "directive_title",
+              "value": "={{ \"SOD \" + $today.toFormat(\"yyyy-MM-dd\") + \" - Strategic Control\" }}",
+              "type": "string"
+            },
+            {
+              "id": "opening_position",
+              "name": "opening_position",
+              "value": "={{ $json.summary ?? \"No summary recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "carried_forward_priorities",
+              "name": "carried_forward_priorities",
+              "value": "={{ $json.priorities ?? \"No explicit priorities recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "unresolved_blockers",
+              "name": "unresolved_blockers",
+              "value": "={{ $json.blockers ?? \"No explicit blockers recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "governance_warnings",
+              "name": "governance_warnings",
+              "value": "={{ $json.governance_warnings ?? \"No governance warnings recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "architecture_changes_to_review",
+              "name": "architecture_changes_to_review",
+              "value": "={{ $json.architecture_changes ?? \"No architecture changes recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "automation_changes_to_review",
+              "name": "automation_changes_to_review",
+              "value": "={{ $json.automation_changes ?? \"No automation changes recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "git_snapshot_required",
+              "name": "git_snapshot_required",
+              "value": "={{ $json.git_snapshot ?? \"No git snapshot recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "today_execution_priorities",
+              "name": "today_execution_priorities",
+              "value": "={{ $json.priorities ?? \"No explicit priorities recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "stop_doing_list",
+              "name": "stop_doing_list",
+              "value": "={{ $json.stop_doing ?? \"No stop-doing items recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "completion_criteria",
+              "name": "completion_criteria",
+              "value": "={{ $json.completion_criteria ?? \"No completion criteria recorded in source EOD.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "current_authority",
+              "name": "current_authority",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "generated_at",
+              "name": "generated_at",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f34b3b2b-f604-46f9-a10b-b2eff822fdc4",
+      "name": "Build SOD Payload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1584,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "any",
+                "operation": "exists"
+              },
+              "id": "f9e352bb-42cb-4092-b576-ab8b8f32267e"
+            },
+            {
+              "id": "8c851335-8007-43ee-bfb8-3b320e41f9f0",
+              "leftValue": "={{ !!$json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "9982f7c3-581b-43f1-9d21-1107e2b2835f",
+      "name": "Today's SOD Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2032,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "id": "7cfc2fb5-d86a-4d54-a87f-f1847ed283b6",
+      "name": "Daily SOD Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        240,
+        496
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://fzbdztapkyrfwjwxtwte.supabase.co/rest/v1/rpc/log_automation_run_start_json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            },
+            {
+              "name": "apikey",
+              "value": "__REDACTED_SUPABASE_SERVICE_ROLE_KEY__"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  {\n    \"p_workflow_name\": \"sod_directive_generator_workflow\",\n    \"p_execution_id\": $execution.id,\n    \"p_payload\": {\n      \"trigger\": \"manual_or_schedule\",\n      \"purpose\": \"generate_start_of_day_directive\",\n      \"source\": \"n8n\"\n    },\n    \"p_affected_entities\": [\n      \"eod_master_index\",\n      \"sod_directive\",\n      \"automation_runs\"\n    ],\n    \"p_strategic_impact\": \"Start of Day directive generation initiated from latest Current Authority EOD.\"\n  }\n}}",
+        "options": {}
+      },
+      "id": "d0eff5a9-5952-4e7a-adaa-16b3732b3a18",
+      "name": "Start Telemetry Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        688,
+        400
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "5Wg6PwpYCaoUVqdc",
+          "name": "Supabase Service Role — Autopsy Canonical v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "a019aead-51ef-435b-a2a7-e7761afe37d6",
+          "mode": "id"
+        },
+        "limit": 1,
+        "filterType": "manual",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Current Authority|checkbox",
+              "condition": "equals",
+              "checkboxValue": true
+            },
+            {
+              "key": "Record Type|select",
+              "condition": "equals",
+              "selectValue": "Strategic Control"
+            }
+          ]
+        },
+        "options": {
+          "sort": {
+            "sortValue": [
+              {
+                "timestamp": true,
+                "key": "created_time",
+                "direction": "descending"
+              }
+            ]
+          }
+        }
+      },
+      "id": "f57ece47-f200-40eb-87bb-99890046a567",
+      "name": "Find Current Authority EOD Row",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1136,
+        400
+      ],
+      "credentials": {
+        "notionOAuth2Api": {
+          "id": "1c1OIYLCSpZA4GW3",
+          "name": "Autopsy n8n Notion API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "a019aead-51ef-435b-a2a7-e7761afe37d6",
+          "mode": "id"
+        },
+        "limit": 1,
+        "filterType": "manual",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "key": "EOD Date|date",
+              "condition": "equals",
+              "date": "={{$today.toFormat(\"yyyy-MM-dd\")}}"
+            },
+            {
+              "key": "Record Type|select",
+              "condition": "equals",
+              "selectValue": "Directive"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b511fe4d-a066-4333-9384-63cabf4fa7cd",
+      "name": "Find Today's SOD Row",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1808,
+        304
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionOAuth2Api": {
+          "id": "1c1OIYLCSpZA4GW3",
+          "name": "Autopsy n8n Notion API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Carried Forward Priorities",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.carried_forward_priorities }}"
+            },
+            {
+              "key": "Unresolved Blockers",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.unresolved_blockers }}"
+            },
+            {
+              "key": "Governance Warnings",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.governance_warnings }}"
+            },
+            {
+              "key": "Architecture Changes to Review",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.architecture_changes_to_review }}"
+            },
+            {
+              "key": "Automation Changes to Review",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.automation_changes_to_review }}"
+            },
+            {
+              "key": "Git Snapshot Required",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.git_snapshot_required }}"
+            },
+            {
+              "key": "Today Execution Priorities",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.today_execution_priorities }}"
+            },
+            {
+              "key": "Stop Doing List",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.stop_doing_list }}"
+            },
+            {
+              "key": "Completion Criteria",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.completion_criteria }}"
+            },
+            {
+              "key": "Current Authority",
+              "checkboxValue": "={{ $(\"Build SOD Payload\").item.json.current_authority }}"
+            },
+            {
+              "key": "Generated At",
+              "textContent": "={{ $(\"Build SOD Payload\").item.json.generated_at }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "53e49833-a33c-49d5-aa32-3090e8092c64",
+      "name": "Update Existing SOD Row",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2704,
+        208
+      ],
+      "credentials": {
+        "notionOAuth2Api": {
+          "id": "1c1OIYLCSpZA4GW3",
+          "name": "Autopsy n8n Notion API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "workflow_run_id",
+              "name": "workflow_run_id",
+              "value": "={{ $(\"Start Telemetry\").item.json.workflow_run_id }}",
+              "type": "string"
+            },
+            {
+              "id": "end_time",
+              "name": "end_time",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "status",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "id": "records_processed",
+              "name": "records_processed",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "message",
+              "name": "message",
+              "value": "SOD directive generated successfully",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1d2fd0b8-6c84-4430-88f1-5a89e5538470",
+      "name": "Finish Telemetry Success Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2928,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://fzbdztapkyrfwjwxtwte.supabase.co/rest/v1/rpc/log_automation_run_finish_json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            },
+            {
+              "name": "apikey",
+              "value": "__REDACTED_SUPABASE_SERVICE_ROLE_KEY__"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer __REDACTED_SUPABASE_SERVICE_ROLE_KEY__"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  {\n    \"p_run_id\": $(\"Normalize Run ID\").item.json.run_id,\n    \"p_status\": \"success\",\n    \"p_records_processed\": 1,\n    \"p_error_message\": null,\n    \"p_payload\": {\n      \"directive_title\": $(\"Build SOD Payload\").item.json.directive_title,\n      \"generated_by\": \"n8n\",\n      \"source\": \"latest_current_authority_eod\"\n    },\n    \"p_affected_entities\": [\n      \"eod_master_index\",\n      \"sod_directive\",\n      \"automation_runs\"\n    ],\n    \"p_strategic_impact\": \"Start of Day directive generated from latest Current Authority EOD.\"\n  }\n}}",
+        "options": {}
+      },
+      "id": "89e1e0b9-5cef-474c-844e-3554b7a4d485",
+      "name": "Finish Telemetry Success Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        3152,
+        304
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "5Wg6PwpYCaoUVqdc",
+          "name": "Supabase Service Role — Autopsy Canonical v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "a019aead-51ef-435b-a2a7-e7761afe37d6",
+          "mode": "id"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Current Authority|checkbox",
+              "condition": "equals",
+              "checkboxValue": true
+            },
+            {
+              "key": "Record Type|select",
+              "condition": "equals",
+              "selectValue": "Directive"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30ce1951-01c7-41e0-947a-b02669d0c8e7",
+      "name": "Find Current SOD Authority Rows",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2384,
+        400
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionOAuth2Api": {
+          "id": "1c1OIYLCSpZA4GW3",
+          "name": "Autopsy n8n Notion API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "workflow_run_id",
+              "name": "workflow_run_id",
+              "value": "={{ $(\"Start Telemetry\").item.json.workflow_run_id }}",
+              "type": "string"
+            },
+            {
+              "id": "end_time",
+              "name": "end_time",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "status",
+              "name": "status",
+              "value": "failed",
+              "type": "string"
+            },
+            {
+              "id": "records_processed",
+              "name": "records_processed",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "error_message",
+              "name": "error_message",
+              "value": "No Current Authority EOD row found. SOD generation blocked.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "92a21e5e-a979-4c3e-98dc-0924a44a471e",
+      "name": "Finish Telemetry Error Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1584,
+        496
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://fzbdztapkyrfwjwxtwte.supabase.co/rest/v1/rpc/log_automation_run_finish_json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            },
+            {
+              "name": "apikey",
+              "value": "__REDACTED_SUPABASE_SERVICE_ROLE_KEY__"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer __REDACTED_SUPABASE_SERVICE_ROLE_KEY__"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=={{\n  {\n    \"p_run_id\": $(\"Normalize Run ID\").item.json.run_id,\n    \"p_status\": \"failed\",\n    \"p_records_processed\": 0,\n    \"p_error_message\": \"No Current Authority EOD row found. SOD generation blocked.\",\n    \"p_payload\": {\n      \"failed_at\": \"Validate EOD Authority Found\",\n      \"execution_id\": $execution.id\n    },\n    \"p_affected_entities\": [\n      \"eod_master_index\",\n      \"sod_directive\",\n      \"automation_runs\"\n    ],\n    \"p_strategic_impact\": \"SOD generation blocked because no authorised EOD record was found.\"\n  }\n}}",
+        "options": {}
+      },
+      "id": "394e3d98-e3f6-4599-a199-1415c367f808",
+      "name": "Finish Telemetry Error Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1808,
+        496
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "5Wg6PwpYCaoUVqdc",
+          "name": "Supabase Service Role — Autopsy Canonical v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f2ffbc9-43d0-4108-8f34-205bc55a151b",
+              "name": "run_id",
+              "value": "={{ $json.run_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        912,
+        400
+      ],
+      "id": "724d54dd-df0b-41da-8697-fcef4b77c17c",
+      "name": "Normalize Run ID"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.notion.com/v1/pages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Notion-Version",
+              "value": "2022-06-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  {\n    parent: {\n      database_id: \"a019aead-51ef-435b-a2a7-e7761afe37d6\"\n    },\n    properties: {\n      \"Name\": {\n        title: [\n          {\n            text: {\n              content: $(\"Build SOD Payload\").item.json.directive_title\n            }\n          }\n        ]\n      },\n      \"Record Type\": {\n        select: {\n          name: \"Directive\"\n        }\n      },\n      \"EOD Date\": {\n        date: {\n          start: $(\"Build SOD Payload\").item.json.generated_date\n        }\n      },\n      \"Source\": {\n        select: {\n          name: \"n8n\"\n        }\n      },\n      \"Project Zone\": {\n        select: {\n          name: \"Governance\"\n        }\n      },\n      \"Status\": {\n        select: {\n          name: \"Active\"\n        }\n      },\n      \"Current Authority\": {\n        checkbox: true\n      },\n      \"Canon Value\": {\n        select: {\n          name: \"High\"\n        }\n      },\n      \"Migration Action\": {\n        select: {\n          name: \"Indexed\"\n        }\n      },\n      \"Notes\": {\n        rich_text: [\n          {\n            text: {\n              content:\n                \"Start of Day Directive\\n\\n\" +\n                \"Source EOD: \" + $(\"Build SOD Payload\").item.json.source_eod_title + \"\\n\" +\n                \"Source EOD Date: \" + $(\"Build SOD Payload\").item.json.source_eod_date + \"\\n\\n\" +\n                \"Opening Position:\\n\" + $(\"Build SOD Payload\").item.json.opening_position + \"\\n\\n\" +\n                \"Today Execution Priorities:\\n\" + $(\"Build SOD Payload\").item.json.today_execution_priorities + \"\\n\\n\" +\n                \"Blockers:\\n\" + $(\"Build SOD Payload\").item.json.unresolved_blockers + \"\\n\\n\" +\n                \"Stop Doing:\\n\" + $(\"Build SOD Payload\").item.json.stop_doing_list + \"\\n\\n\" +\n                \"Completion Criteria:\\n\" + $(\"Build SOD Payload\").item.json.completion_criteria\n            }\n          }\n        ]\n      }\n    }\n  }\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2592,
+        400
+      ],
+      "id": "57b173ba-e6c8-46fe-a075-9f2165fa8a58",
+      "name": "Create SOD Master Index Record1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "sAolIq5Yn9qXupHN",
+          "name": "Notion API — Autopsy"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Start Telemetry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Telemetry": {
+      "main": [
+        [
+          {
+            "node": "Start Telemetry Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate EOD Authority Found": {
+      "main": [
+        [
+          {
+            "node": "Build SOD Payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Finish Telemetry Error Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build SOD Payload": {
+      "main": [
+        [
+          {
+            "node": "Find Today's SOD Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Today's SOD Exists?": {
+      "main": [
+        [
+          {
+            "node": "Update Existing SOD Row",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Find Current SOD Authority Rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily SOD Trigger": {
+      "main": [
+        [
+          {
+            "node": "Start Telemetry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Telemetry Supabase": {
+      "main": [
+        [
+          {
+            "node": "Normalize Run ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Current Authority EOD Row": {
+      "main": [
+        [
+          {
+            "node": "Validate EOD Authority Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Today's SOD Row": {
+      "main": [
+        [
+          {
+            "node": "Today's SOD Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Existing SOD Row": {
+      "main": [
+        [
+          {
+            "node": "Finish Telemetry Success Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finish Telemetry Success Data": {
+      "main": [
+        [
+          {
+            "node": "Finish Telemetry Success Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Current SOD Authority Rows": {
+      "main": [
+        [
+          {
+            "node": "Create SOD Master Index Record1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finish Telemetry Error Data": {
+      "main": [
+        [
+          {
+            "node": "Finish Telemetry Error Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Run ID": {
+      "main": [
+        [
+          {
+            "node": "Find Current Authority EOD Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create SOD Master Index Record1": {
+      "main": [
+        [
+          {
+            "node": "Finish Telemetry Success Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "243365f8-44f0-4a4d-b25f-f94ff02709f0",
+  "meta": {
+    "instanceId": "05d4377ea8d8081ec10f2e0ffd768c54a6c0c0af7d9e43159821310c768fabb5"
+  },
+  "nodeGroups": [],
+  "id": "w53m9u5wwECByxxC",
+  "tags": []
+}
