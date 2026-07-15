@@ -1,5 +1,9 @@
 # Canonical Inventory
 
+**Status:** Current inventory summary  
+**Governing standard:** DS-001 — BuildOS Engineering Standards v1.0  
+**Last reviewed:** 2026-07-15
+
 ## Core Tables
 
 | Table | Purpose |
@@ -25,13 +29,16 @@
 
 ## Governance Rules
 
-- One source of truth
-- Deterministic outputs
+- One authoritative owner per governed datum
+- Deterministic outputs for material decisions
 - Governance before velocity
-- No hidden logic in Lovable
-- No undocumented mutations
+- No hidden business logic in presentation clients, deployment surfaces, or orchestration workflows
+- No undocumented production mutations
+- Retired tools are historical evidence only unless formally re-authorised and recertified
 
 ---
 
-GitHub = operational memory
-Supabase = execution engine
+GitHub = canonical engineering memory and version authority  
+Supabase = operational business truth and execution integrity
+
+Dated Lovable-, Bubble-, or Make-era records are retained as historical evidence and do not define current architecture.
