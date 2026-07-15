@@ -1,11 +1,15 @@
 # Core Stack
 
-AI reasons
-→ n8n orchestrates
-→ Supabase validates
-→ GitHub protects
-→ Notion visualizes
-→ Lovable surfaces
+**Status:** Current architecture summary  
+**Governing standard:** DS-001 — BuildOS Engineering Standards v1.0  
+**Last reviewed:** 2026-07-15
+
+OpenAI reasons within a bounded authority envelope  
+→ n8n orchestrates deterministic hand-offs  
+→ Supabase validates and owns operational truth  
+→ GitHub protects canonical engineering history  
+→ Notion provides operational governance and human control  
+→ Vercel delivers approved product surfaces
 
 ---
 
@@ -27,6 +31,7 @@ Sleeves:
 ## Canonical Core Ownership
 
 Supabase owns:
+- operational business truth
 - validation
 - scoring
 - auditability
@@ -34,24 +39,42 @@ Supabase owns:
 - longitudinal intelligence
 
 GitHub owns:
-- rollback
+- canonical code and specifications
+- rollback artefacts
 - migration memory
-- operational history
-- governance tracking
+- engineering history
+- governance and certification evidence
 
 n8n owns:
 - orchestration workflows
 - scheduled checks
-- controlled cross-system handoffs
-- snapshot/checkpoint triggers
+- controlled cross-system hand-offs
+- reconciliation and recovery routing
 - non-canonical automation logs
+
+Notion owns:
+- operational governance
+- human control surfaces
+- readable mirrors and review records
+
+Vercel owns:
+- approved application delivery
+- environment-scoped deployments
+- product-surface hosting evidence
+
+OpenAI provides:
+- bounded reasoning, extraction, classification, drafting, and tool use
+- no final authority, secret storage, or unvalidated material mutation
 
 ---
 
 ## Prohibited Architecture
 
-- hidden logic in Lovable
+- hidden business logic in any presentation or deployment layer
 - pseudo-Core in n8n
-- Notion as canonical truth
+- Notion as canonical operational truth
 - undocumented mutations
 - unrestricted AI writes to Supabase Core
+- retired tools presented as active architecture without a dated ADR and current certification evidence
+
+Historical Lovable-, Bubble-, and Make-based documents remain evidence only and do not define the active stack.
