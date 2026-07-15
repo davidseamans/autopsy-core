@@ -1,5 +1,9 @@
 # RPC Inventory
 
+**Status:** Current inventory summary  
+**Governing standard:** DS-001 — BuildOS Engineering Standards v1.0  
+**Last reviewed:** 2026-07-15
+
 | RPC | Purpose | Input | Output |
 |---|---|---|---|
 | freeze_run_questions | freeze deterministic run state | p_run_id | frozen question set |
@@ -10,7 +14,8 @@
 
 ## Operational Rules
 
-- RPCs are canonical execution units
-- Lovable must not duplicate RPC logic
-- Make.com must not replace RPC validation
-- Production RPCs operate via p_run_id
+- RPCs are canonical execution units for the governed logic assigned to them.
+- Presentation clients, including the Vercel-delivered application, must not duplicate RPC logic.
+- Orchestration platforms, including n8n, must not replace Supabase validation or become a competing business-rules engine.
+- Production RPCs operate via `p_run_id` where specified by the contract.
+- Historical references to Lovable or Make.com describe retired implementation paths and are not current dependencies.
